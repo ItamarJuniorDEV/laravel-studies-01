@@ -9,5 +9,5 @@ class MainController extends Controller
     public function teste($value): void
     {
         echo "A string final é: " . $this->cleanUpperCaseString($value);
-    }
+     }
 }
