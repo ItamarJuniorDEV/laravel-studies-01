@@ -8,16 +8,16 @@ class MainController extends Controller
 {
     public function index()
     {
-        return view('index');
+        echo '<p>index</p>';
     }
 
     public function about()
     {
-        return view('about');
+        echo '<p>about</p>';
     }
 
     public function contact()
     {
-        return view('contact');
+        echo '<p>contact</p>';
     }
 }
