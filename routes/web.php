@@ -20,8 +20,14 @@ Route::get('/contact', [MainController::class, 'contact'])->name('contact');*/
 
 // Usamos o withoutMiddleware para que a rota about não escuto o método selecionado ao lado
 // Juntando as rotas que vão ter StartMiddleware e EndMiddleware em um grupo
-Route::middleware(StartMiddleware::class, EndMiddleware::class)->group(function () {
+// Route::middleware(StartMiddleware::class, EndMiddleware::class)->group(function () {
+//   Route::get('/', [MainController::class, 'index'])->name('index');
+//   Route::get('/about', [MainController::class, 'about'])->name('about')->withoutMiddleware([EndMiddleware::class]);
+//   Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+// });
+
+Route::middleware(['correr_depois'])->group(function () {
   Route::get('/', [MainController::class, 'index'])->name('index');
-  Route::get('/about', [MainController::class, 'about'])->name('about')->withoutMiddleware([EndMiddleware::class]);
+  Route::get('/about', [MainController::class, 'about'])->name('about');
   Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 });
